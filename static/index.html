@@ -107,6 +107,7 @@
 <div id="result"></div>
 <div id="result2"></div>
 <div id="result3"></div>
+<canvas id="setka" width="400" height="400"></canvas>
 
 <!--
 <form>   
@@ -116,7 +117,6 @@
 -->
 <script>
 $(document).ready(function(){
-<canvas id="setka" width="400" height="400"></canvas>
 var c_canvas = document.getElementById("setka"); 
 var context = c_canvas.getContext("2d");
 for (var x = 0.5; x < 400; x += 10) { context.moveTo(x, 0); context.lineTo(x, 400); } 
