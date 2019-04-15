@@ -1,4 +1,5 @@
-﻿package main
+﻿//https://staticfs.herokuapp.com/
+package main
 
 import (
 	"encoding/json"
