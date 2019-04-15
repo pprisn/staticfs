@@ -101,17 +101,12 @@
                  left: 1300px;"  >
               </iframe>
 
-
-
-
-
-
+<p><img src="line_height.png" alt=""></p>
+<p><img src="line_width.png" alt=""></p>
 
 <div id="result"></div>
 <div id="result2"></div>
 <div id="result3"></div>
- 
-
 
 
 <form>   
@@ -141,14 +136,12 @@ var yround=Math.round((yClick*0.0264 - 336.3779*0.0264)*100)/100 ;
       success: function(result) {
 	
         $('#result2').html('P = '+ result.Phii);
-        $('#result3').append('X = '+ xround +' Y= ' +yround +' P = '+ result.Phii);	
+        $('#result3').append('<p> X = '+ xround +' Y= ' +yround +' P = '+ result.Phii +' </p>');	
         },
      });      
 });
 </script>
 
-<p><img src="line_height.png" alt=""></p>
-<p><img src="line_width.png" alt=""></p>
 
 </body>
 </html>
