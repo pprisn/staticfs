@@ -109,6 +109,7 @@
 
 <div id="result"></div>
 <div id="result2"></div>
+<div id="result3"></div>
  
 
 
@@ -140,7 +141,7 @@ var yround=Math.round((yClick*0.0264 - 336.3779*0.0264)*100)/100 ;
       success: function(result) {
 	
         $('#result2').html('P = '+ result.Phii);
-	
+        $('#result3').append('X = '+ xround +' Y= ' +yround +' P = '+ result.Phii);	
         },
      });      
 });
