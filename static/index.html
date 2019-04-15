@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+  <title>Потенциал поля(планшет)</title>
+  <meta charset="utf-8">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.2.1.min.js">
+  
+  window.onload=function(){
+        var drawingCanvas=document.getElementById('work');
+        if (drawingCanvas&&drawingCanvas.getContext){
+            var context = drawingCanvas.getContext('2d');
+            context.strokeStyle= "#000";
+            context.fillStyle="#fc0";
+            context.beginPath();
+            context.arc(100,100,50,0,Math.PI*2,true);
+            context.closePath();
+            context.stroke();
+            context.fill();
+        }
+
+        }
+  
+  </script>
+  
+<style type="text/css">
+   #working_area {position :absolute; }
+   #working_area {overflow: auto; padding: 10px;}
+   #working_area {
+      left: 30px;
+      top: 25px;
+      right: 100px;
+ 
+   } 
+
+   body {
+    background: #c7b39b url(images/fon.jpg); /* Цвет фона и путь к файлу */
+    color: rgb(59, 128, 168); /* Цвет текста */
+   }
+
+
+    #line_height{
+        position:absolute;
+        left:10px;
+        top:150px;
+    }
+    #line_width{
+        position:absolute;
+        left:67px;
+        top:845px;
+    }
+       
+    #work{
+        position:absolute;
+        color: aqua;
+        top:165px;
+        left:67px;
+        
+    }
+    #work_1{
+        position:absolute;
+        color: aqua;
+        top:165px;
+        left:67px;
+        
+    }
+
+</style>
+ 
+</head>
+<body >
+
+
+      <h1 align="center">      Лабораторная установка для работ №3-5 (Потенциал поля) </h1> 
+      <hr>
+      
+          <div id="line_height">
+              <img  src="images/line_height.png" height="695px" width="57px" alt="Динейка" >
+          </div>
+      
+          <div id="line_width">
+                  <img src="images/line_width.png"height="57px" width="1221px" alt="Линейка">
+              </div>
+      
+        <div id="work_1">
+                      <img src="images/work.png" alt="Линейка">
+           </div>
+      
+          
+      
+      
+          <canvas id="work" width="1210px " height="680">
+      
+          </canvas>
+         
+              <iframe src="top.html" name="topFrame" width="200" height="150" scrolling="yes" frameborder="yes"
+      
+                 style="position:absolute;
+                 top:180px;
+                 left: 1300px;"  >
+              </iframe>
+
+
+
+
+
+
+
+<div id="result"></div>
+<div id="result2"></div>
+ 
+
+
+
+<form>   
+   <button type="button" id='button_1'
+    class="button_position"> ИЗМЕРИТЬ </button>
+</form>
+
+
+<script>  // Подключение JS
+$("#work").click(function(e){
+var xClick = e.pageX - $(this).offset().left;
+var yClick = e.pageY - $(this).offset().top;
+var xround=Math.round((xClick*0.0264 - 600.9448*0.0264)*100)/100;
+var yround=Math.round((yClick*0.0264 - 336.3779*0.0264)*100)/100 ;
+ //alert('X = '+ xClick +' Y= ' +yClick);
+ $('#result').html('X = '+ xround +' Y= ' +yround);
+
+
+ $.ajax({   // Отправка на сервер 
+
+
+      url: '/myfunc',
+      type: "post",
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({ x: xClick, y: yClick}),
+      dataType: 'json',
+      success: function(result) {
+	
+        $('#result2').html('P = '+ result.Phii);
+	
+        },
+     });      
+});
+</script>
+
+<p><img src="line_height.png" alt=""></p>
+<p><img src="line_width.png" alt=""></p>
+
+</body>
+</html>

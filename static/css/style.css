@@ -1,0 +1,21 @@
+#working_area {
+    width: 318mm;
+    height: 178mm;
+    background: #BDBDBD;
+}
+.button_position { 
+    position :absolute;
+    left: 1350px;
+    top: 150px;
+    right: 100px;
+}
+#result{
+    position :absolute;
+    left: 1325px;
+    top: 200px;
+}
+#result2{
+    position :absolute;
+    left: 1325px;
+    top: 230px;
+}
