@@ -247,7 +247,7 @@ func main() {
 	http.Handle("/", http.FileServer(http.Dir("static")))
 	// Определяем маршрут и обработчик для функции Ajax запроса
 	http.HandleFunc("/myfunc", myfuncAjax)
-	go http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":"+port, nil)
 }
 
 //log.Fatal()  // Спросить
